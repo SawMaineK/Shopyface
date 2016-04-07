@@ -33,9 +33,7 @@ class Gcm extends Model
 
 	public static $rules = [
 	    "reg_id" => "required",
-		"device_id" => "required",
-		"user_id" => "required",
-		"is_allow" => "required"
+		"device_id" => "required"
 	];
 
     	/**
