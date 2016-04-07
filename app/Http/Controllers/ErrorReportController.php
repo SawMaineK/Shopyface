@@ -8,6 +8,7 @@ use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 use App\Models\ErrorReport;
+use Mail;
 
 class ErrorReportController extends AppBaseController
 {

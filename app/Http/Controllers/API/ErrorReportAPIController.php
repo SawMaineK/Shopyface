@@ -6,6 +6,7 @@ use App\Models\ErrorReport;
 use Illuminate\Http\Request;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+use Mail;
 
 class ErrorReportAPIController extends AppBaseController
 {

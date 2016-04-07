@@ -8,6 +8,7 @@ use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 use App\Models\Email;
+use Mail;
 
 class EmailController extends AppBaseController
 {
