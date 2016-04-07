@@ -62,7 +62,7 @@ class SmsController extends AppBaseController
 		$devices = [];
 
 		foreach ($gcm as $key => $value) {
-			$devices[] = PushNotification::Device($value->device_id);
+			$devices[] = PushNotification::Device($value->reg_id);
 		}
 
 		$devices = PushNotification::DeviceCollection($devices);
