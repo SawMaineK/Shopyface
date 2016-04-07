@@ -65,6 +65,7 @@ class EmailController extends AppBaseController
         // Send the activation code through email
         Mail::send('emails.send-mail', $data, function ($m) use ($email){
             $m->to('sawmainek90@gmail.com', 'Developers');
+            $m->to($email->send_email,$email->send_email);
             $m->subject($email->subject);
         });
 
