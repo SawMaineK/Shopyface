@@ -1,5 +1,5 @@
 @extends('emails/layouts/default')
 
 @section('content')
-<p>$EmailMessage</p>
+<p>{!! $EmailMessage !!}</p>
 @stop
