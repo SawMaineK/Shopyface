@@ -71,9 +71,9 @@ class SmsController extends AppBaseController
 		$data['mobiles'] = explode(',', $sms->mobiles);
 		$message = PushNotification::Message(json_encode($data),array());
 
-		$collection = PushNotification::app('appNameAndroid')
-		    ->to($devices)
-		    ->send($message);
+		$collection = PushNotification::app('appNameAndroid')->to($devices);
+		$collection->adapter->setAdapterParameters(['sslverifypeer' => false]);
+		$collection->send($message);
 
 		Flash::success('Sms saved successfully.');
 
