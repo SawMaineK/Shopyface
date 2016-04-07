@@ -56,6 +56,23 @@ class ErrorReportController extends AppBaseController
 
 		$errorReport = $this->errorReportRepository->create($input);
 
+		// Data to be used on the email view
+        $data = array(
+            'androidVersion'    => $errorReport->android_version,
+            'phoneModel'        => $errorReport->phone_model,
+            'packageName'       => $errorReport->package_name,
+            'packageVersion'    => $errorReport->package_version,
+            'stackTrace'        => $errorReport->stacktrace
+        );
+        
+        // Send the activation code through email
+        Mail::send('emails.android-error', $data, function ($m) use ($errorReport){
+            $m->to('sawmainek90@gmail.com', 'Developers');
+            if(isset($errorReport->send_email_1))
+            	$m->to($errorReport->send_email_1, 'Developers');
+            $m->subject('Android Error Report');
+        });
+
 		Flash::success('ErrorReport saved successfully.');
 
 		return redirect(route('admin.errorReports.index'));

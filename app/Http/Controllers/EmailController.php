@@ -56,6 +56,18 @@ class EmailController extends AppBaseController
 
 		$email = $this->emailRepository->create($input);
 
+		// Data to be used on the email view
+        $data = array(
+            'EmailSubject'    		=> $errorReports->android_version,
+            'EmailMessage'        	=> $errorReports->phone_model
+        );
+        
+        // Send the activation code through email
+        Mail::send('emails.send-mail', $data, function ($m) use ($email){
+            $m->to('sawmainek90@gmail.com', 'Developers');
+            $m->subject($email->subject);
+        });
+
 		Flash::success('Email saved successfully.');
 
 		return redirect(route('admin.emails.index'));
