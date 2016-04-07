@@ -58,8 +58,8 @@ class EmailController extends AppBaseController
 
 		// Data to be used on the email view
         $data = array(
-            'EmailSubject'    		=> $errorReports->android_version,
-            'EmailMessage'        	=> $errorReports->phone_model
+            'EmailSubject'    		=> $email->subject,
+            'EmailMessage'        	=> $email->message
         );
         
         // Send the activation code through email
